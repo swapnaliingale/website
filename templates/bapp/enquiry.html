@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% extends 'bapp/base.html' %}
+{% load static%}
+  {% block body_block%}
+<h2>Enquiry Form</h2>
+<div class="jumbotron">
+  <form method="post">
+  {% csrf_token %}
+    <div class="form-group">
+    {{form.as_p}}
+
+  </div>
+<button type="submit">Submit</button>
+</form>
+</div>
+{% endblock %}

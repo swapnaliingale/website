@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% extends 'bapp/base.html' %}
+{% load static%}
+  {% block body_block%}
+ <!--<link rel="stylesheet" href="{% static 'css/style.css' %}"/>-->
+<style>
+table,th,td{
+border: 1px solid black;
+}
+
+th,td{
+padding: 15px;
+}
+
+th{
+text-align: center;
+background-color: #b6e1fc;
+}
+
+tr{
+background-color:#e7f5fe
+}
+
+</style>
+
+
+
+
+<div class="item">
+        <img src="{% static 'images/r1.jpg'%}" alt="road" style="width:100%;">
+      </div>
+<h2>OUR CONSTRUCTION PROJECTS</h2>
+<div class="item2">
+<img src="{% static 'images/r11.jpg' %}" style="float:left;margin-right:10px;margin-bottom:5px;width:500px;height:350px;border:6px outset Silver;"/>
+   <p>KCL has completed several prestigious projects including part of India’s first national expressway between Ahmedabad and Baroda (part of the Golden Quadrilateral project). Currently company is having more than 15 road projects in hand which demonstrates the execution capability of the Company in Road construction segment.
+    KCL has executed Runway projects at Bhopal for Airport Authority of India New Delhi.</p>
+    <p>KCL has executed 15 Road projects funded by World Bank and two projects are funded by ADB.
+    Presently KCL is executing two major road projects funded by World Bank.</p>
+    <p>KCL entered into Power Transmission Segment in the year 2009 by fetching award of EPC Contract
+        for Construction of 400 KV D/C Quad Conductor Line of approx. 250 Kms from MSETCL,
+        Maharashtra on Turnkey basis involving Design that required Development of 400 KV D/C
+        Quad Conductor Tower Type QDA (0°-2°), QDB (2°-15°), QDC (15°-30°) and QDD (30°-60°) and
+        successfully type tested at CPRI, Bangalore.</p>
+    <p>KCL has successfully tested and commissioned 123.797 km of 400 KV Chandrapur II -
+        Wardha (PG) via Warora D/C Line on D/C tower, Quad conductor involving tower erection and
+        stringing of Water body (River Crossing) with span of 694 meters, tower height of 105.
+        700 meters and Weight of 80.514 MT.</p>
+</div><br>
+<!--to display table-->
+<div class="djangotwo">
+          {% if data %}
+          <table>
+          <thead>
+           <th>NO</th>
+           <th>Project Name</th>
+           <th>Client name</th>
+          </thead>
+          {% for acc in data %}
+        <tr>
+            <tbody>
+                   <td>{{ acc.No}}</td>
+                   <td>{{ acc.pname }}</td>
+                   <td>{{ acc.cname }}</td>
+               </tr>
+            {% endfor %}
+              </tbody>
+    </table>
+     {% endif %}
+    </div>
+{% endblock %}

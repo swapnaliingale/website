@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends 'bapp/base.html' %}
+{% load static%}
+  {% block body_block%}
+<div class="item3">
+        <img src="{% static 'images/clients.jpg'%}" alt="client" style="width:100%;">
+      </div>
+<h2>Our Clients</h2>
+{% for i_data in i_data %}
+<img src="{{i_data.image.url}}" style="float:left;margin-right:10px;margin-bottom:10px;width:200px;height:150px;border:2px outset Silver;"/>
+{%endfor%}
+
+{% endblock %}
