@@ -2,15 +2,49 @@
 {% extends 'bapp/base.html' %}
 {% load static%}
   {% block body_block%}
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 500px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<body>
+
 <h2>Enquiry Form</h2>
-<div class="jumbotron">
-  <form method="post">
-  {% csrf_token %}
-    <div class="form-group">
-    {{form.as_p}}
+
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+    <form method="post">
+    {%csrf_token%}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" />
+</form>
+  </div>
+  <div class="column" style="background-color:;">
+    <h2>KCL CONSTRUCTION LIMITED</h2>
+    <p>Lakhani Road, <br>
+      Near Police Station-Mujesar,<Br>
+      Sector 24, Faridabad, Haryana 121005.<br>
+</p>
+      <strong>Phone: 0129 1234567</strong><br>
+      <strong>Email: kcl@gmail.com</strong>
 
   </div>
-<button type="submit">Submit</button>
-</form>
 </div>
 {% endblock %}
